@@ -1,4 +1,4 @@
-# Flashcard-Generator
+# Flashcard-Generator (JS and node.js)
 
 A basic flashcard application with a backend that allows users to create two types of flashcards.
 
