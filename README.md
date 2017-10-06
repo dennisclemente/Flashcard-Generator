@@ -14,6 +14,8 @@ _"George Washington was the first president of the United States."_
 
 _"... was the first president of the United States."_
 
+This forces users to remember the important part of a sentence, and is [a common device in educational applications](https://en.wikipedia.org/wiki/Cloze_test).
+
 The flash card is built in three parts:
 
 1. The **full text**. This is the entire sentence users need to remember:  _"George Washington was the first president of the United States."_
