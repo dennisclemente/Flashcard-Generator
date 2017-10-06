@@ -1,0 +1,1 @@
+{"text":"Who was first president of the United States?","cloze":"George Washington","clozeDeleted":"Who was first president of the United States?","type":"cloze"};
