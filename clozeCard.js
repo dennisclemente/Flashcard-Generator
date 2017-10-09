@@ -1,22 +1,30 @@
-var fs = require("fs");
+var BasicCard = require("./BasicCard.js");
 
-module.exports = ClozeFlashcard;
+var ClozeCard = function(text, cloze) {
+    if (this instanceof ClozeCard) {
+        this.fullText = text;
+        this.cloze = cloze;
 
-function ClozeFlashcard(text, cloze) {
-    this.text = text;
-    this.cloze = cloze;
-    this.clozeDeleted = this.text.replace(this.cloze, '_____');
-    this.create = function() {
-    var data = {
-        text: this.text,
-        cloze: this.cloze,
-        clozeDeleted: this.clozeDeleted,
-        type: "cloze"
-    };
-    fs.appendFile("log.txt", JSON.stringify(data) + ';', "utf8", function(error) {
-        if (error) {
-            console.log(error);
-        }
-    });
-  };
-}
+        this.partial = function() {
+            if (this.fullText.includes(this.cloze)) {
+                return this.fullText.replace(this.cloze, '...');
+            } else {
+                var brokenCloze = "Oops! Full text: '" + this.fullText + "' doesn't contain the cloze: '" + this.cloze + "'.";
+                return brokenCloze;
+            }
+        };
+            } else {
+                return new ClozeCard(text, cloze);
+    }
+};
+
+    // var firstPresBasic = new BasicCard("Who was the first president of the US?", "George Washington");
+    // console.log(firstPres.front);
+    // console.log(firstPres.back);
+
+    // var firstPresCloze = new ClozeCard("George Washington was the first president of the US.", "George Washington");
+    // console.log(firstPresClose.fullText);
+    // console.log(firstPresCloze.cloze);
+    // console.log(firstPresCloze.partial());
+
+    module.exports = ClozeCard;
