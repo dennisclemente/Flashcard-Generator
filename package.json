@@ -1,7 +1,7 @@
 {
   "name": "flashcard-generator",
   "version": "1.0.0",
-  "description": "made flashcards",
+  "description": "flashcards",
   "main": "main.js",
   "dependencies": {
     "inquirer": "^3.3.0"
@@ -10,9 +10,20 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dennisclemente/Flashcard-Generator.git"
+  },
   "keywords": [
-    "flashcard"
+    "flashcards",
+    "front",
+    "and",
+    "back"
   ],
   "author": "dennis",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dennisclemente/Flashcard-Generator/issues"
+  },
+  "homepage": "https://github.com/dennisclemente/Flashcard-Generator#readme"
 }
