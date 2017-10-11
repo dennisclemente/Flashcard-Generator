@@ -1,28 +1,31 @@
-var fs = require('fs');
-var BasicCard = require('./basicCard.js');
-var ClozeCard = require('./clozeCard.js');
+var BasicCard = require('./basicCard');
+var ClozeCard = require('./clozeCard');
+var cardLibrary = require('./cardJsonLib');
 
-var showCards = function() {
-     fs.readFile('./log.txt', 'utf8', function(error, data) {
-    
-    if (error) {
-        console.log('Error occurred: ' + error);
-    } if (cardType=== jasonData[0].type){
+var fs = require("fs");
 
-    var basicCard = new BasicCard(jasonData[0].front,jasonData[0].back);
-    console.log('front: ' + basicCard.front + ' | back: ' + basicCard.back);
+function card(showCards){
+  fs.readFile('cardJsonLib.json','utf-8', function(err, data){
+    if(err) console.log(err);
 
-    } else if(showCards === jasonData[1].type){
+    cardData = JSON.parse(data);
 
-    var clozeCard = new ClozeCard(jasonData[1].text, jasonData[1].cloze);
-    clozeCard.passed();
+    if(showCards === cardData[0].type){
 
-    }else{
-    console.log('Sorry!');
+      var basicCard = new BasicCard(cardData[0].front,cardData[0].back);
+      console.log('front: ' + basicCard.front + ' | back: ' + basicCard.back);
+    } 
+    else if(showCards === cardData[1].type){
+
+      var clozeCard = new ClozeCard(cardData[1].text, cardData[1].cloze);
+      clozeCard.itMatches();
+    }   
+    else {
+      console.log('Wrong. Try again!');
     }
 
   });
 }
 
-showCards("BasicCard");
-showCards("ClozeCard");
+card("BasicCard");
+card("ClozeCard");
